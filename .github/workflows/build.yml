@@ -13,11 +13,11 @@ jobs:
       - name: Import PAT from Actions secrets
         run: |
          cd SwiftPamphletApp
-         sed -i '' s/'gitHubAccessToken = ""'/'gitHubAccessToken = "${{ secrets.PAT }}"'/ SwiftPamphletAppConfig.swift
+         sed -i '' s/'gitHubAccessToken = "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"'/'gitHubAccessToken = "${{ secrets.PAT }}"'/ SwiftPamphletAppConfig.swift
          cd ..
       - name: Build
         run: |
-          if grep -q 'gitHubAccessToken = ""' ./SwiftPamphletApp/SwiftPamphletAppConfig.swift ; then
+          if grep -q 'gitHubAccessToken = "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"' ./SwiftPamphletApp/SwiftPamphletAppConfig.swift ; then
             echo "please setup your personal access token to Actions secrets and name it to PAT" && exit
           fi
           chmod +x ./compile.command
